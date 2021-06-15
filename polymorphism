@@ -30,7 +30,7 @@ class wildlife extends animal{
         System.out.println("runnig");
     }
 }
-class Main{
+public class Main{
     public static void main(String args[]) {
      animal obj=new animal();
      wildlife obj1=new wildlife();
