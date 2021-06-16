@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class student{
+    private String name;
+    private int id;
+    private int rollno;
+
+public void setname(String name){
+    this.name=name;
+}
+public void setid(int id){
+    this.id=id;
+}
+public void setrollno(int rollno){
+    this.rollno=rollno;
+}
+public String  getname(){
+    return name;
+}
+public int getid(){
+    return id;
+}
+public int getrollno(){
+    return rollno;
+}
+}
+public class encapsulation{
+    public static void main(String[] args){
+        student obj=new student();
+        obj.setname("bhavana");
+        obj.setid(1);
+        obj.setrollno(123);
+        System.out.println("name is:"+obj.getname());
+        System.out.println("id is:"+obj.getid());
+        System.out.println("rollno is:"+obj.getrollno());
+
+        
+    }
+}
