@@ -1,0 +1,63 @@
+//stack using defualt methods
+import java.util.Stack;
+public class stack{
+    public static void main(String[] args){
+    Stack<Integer> stk=new Stack<>();
+    boolean stkempty=stk.empty();
+    System.out.println(stkempty);
+    stk.push(10);
+    stk.push(30);
+    stk.push(40);
+    stk.push(50);
+    stk.pop();
+    System.out.println(stk);
+    }
+}
+
+//java code fr all the default functions  implementaition(push , pop , search , peek)
+import java.io.*;
+import java.util.*;
+//import java.util.Stack;
+public class test{
+  static void stack_push(Stack<Integer> stack){
+        System.out.println("stack push operation");
+        for(int i=0;i<5;i++){
+            stack.push(i);
+        }
+    }
+  static void stack_pop(Stack<Integer> stack){
+      System.out.println("stack pop operation");
+      for(int i=0;i<=5;i++){
+          Integer j=(Integer) stack.pop();
+          System.out.println(j);
+      }
+  }
+  static void stack_peek(Stack<Integer> stack){
+      System.out.println("stack peek operation");
+          Integer topelement=(Integer) stack.peek();
+          System.out.println("top element in stack is:"+topelement);
+      
+  }
+  static void stack_search(Stack<Integer> stack,int ele){
+      System.out.println("stack search operation");
+          Integer position=(Integer) stack.search(ele);
+          System.out.println("element found in postion:"+position);
+      
+  }
+  
+    public static void main(String[] args){
+    Stack<Integer> stack=new Stack<Integer>();
+    stack_push(stack);
+    System.out.println("inserted using push operation:"+stack);
+    stack_pop(stack);
+    System.out.println("deleted using pop operation:"+stack);
+    stack_peek(stack);
+    System.out.println("top element in stack is:"+stack);
+    stack_push(stack);
+    System.out.println("inserted using push operation:"+stack);
+    stack_search(stack,2);
+    System.out.println("element found in position is:"+stack);
+    
+   
+    }
+}
