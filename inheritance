@@ -1,0 +1,56 @@
+//inheritance
+class student{
+     int id=1;
+     String name="sai";
+ }
+class marks extends student{
+     int marks=89;
+     String subject="c";
+}
+public class main{
+public static void main(String[] args){
+    marks obj=new marks();
+    System.out.println(obj.name);
+    System.out.println(obj.id);
+    System.out.println(obj.marks);
+    System.out.println(obj.subject);
+
+}
+}
+
+//multiple inheritance
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+ 
+interface animal{
+  public  void bark();
+}
+interface animal1{
+    public void run();
+    
+}
+interface dog extends animal,animal1{
+   public void run();
+    }
+
+ public class wild implements dog{
+    @Override
+  public  void run(){
+        System.out.println("animals runs run()");
+    }
+   public void bark(){
+                System.out.println("animals barks bark()");
+
+    }
+}
+public class Main{
+public static void main(String[] args){
+    wild w=new wild();
+    w.run();
+    w.bark();
+    w.run();
+}
+}
+
+ 
