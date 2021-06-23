@@ -1,0 +1,52 @@
+import java.util.Arrays;
+import java.util.HashSet;
+public class hashtouple{
+  public static HashSet<String> hashtouple(String ch,int number){
+           HashSet<String> hashtouple=new  HashSet<>();
+           for(int i=0;i<ch.length()-number+1;i++){
+           hashtouple.add(ch.substring(i,i+number));
+            }
+
+
+       return hashtouple;
+    }public static boolean doTestPass() {
+      boolean testPassed = true;
+      HashSet<String> result=null;
+      String inputString=null;
+      System.out.println("Running test 1");
+      try{
+        result=hashtouple(inputString,2);
+        //reaching here means that the exception was not thrown indicating that the test failed
+        System.out.println("Test 1 Failed");
+        testPassed=false;
+      }
+      catch(IllegalArgumentException e) {  
+      }
+      
+      System.out.println("Running test 2");
+      inputString="abcde";
+      try{
+        result=hashtouple(inputString,6);
+        //reaching here means that the exception was not thrown indicating that the test failed
+        System.out.println("Test 2 Failed");
+        testPassed=false;
+      }
+      catch(IllegalArgumentException e) {  
+      }
+      if(testPassed) {
+        System.out.println("All tests passed");
+      }
+      else{
+        System.out.println("There is a test failure");
+      }
+        return testPassed;
+        
+     
+    }
+    public static void main(String[] Args) {
+
+        doTestPass();
+
+    }
+}
+
