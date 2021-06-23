@@ -1,0 +1,36 @@
+public class square {
+
+    public static double squareRoot(double a){
+        double b = a,c,d;
+        for(int i= 1; i<=10;i++){
+            c = Math.sqrt(b);
+            d = .5 * (1/c);
+            b = (b - (c/d));
+
+        }
+         return b;
+    }
+
+    public static boolean doTestPass()
+    {
+        //Implement the following test caes.Add more test cases if possible.
+        double[] inputs={1.22,2,4,100,98785785};
+        double[] expectedvalue={1.1045361,1.41421,2,10,9939.10383};
+        double threshold=0.001;
+        for(int i=0;i<inputs.length;i++)
+        {
+            if(Math.abs(squareRoot(inputs[i])-expectedvalue[i])>threshold)
+            {System.out.printf("test failed for %f expected_value=%f;actual=%f\n",inputs[i],expectedvalue[i],squareRoot(inputs[i]));
+                return false;
+            }
+
+        }
+        System.out.println("All tests passed");
+        return true;
+    }
+    public static void main(String[] args) {
+        doTestPass();
+    }
+
+
+}
