@@ -1,0 +1,41 @@
+
+public class PascalT {
+     public static boolean doTestPass() {
+         Triangle Solution = new Triangle();
+         boolean result = true;
+         result = result && Solution.pascal(0,0)==1;
+         result = result && Solution.pascal(2,1)==2;
+         result = result && Solution.pascal(6,5)==6;
+         result = result && Solution.pascal(8,4)==70;
+         result = result && Solution.pascal(6,6)==1;
+         
+         if(result) {
+             System.out.println("All Test Cases Pass");
+         }else {
+             System.out.println("Test Case Fail");
+         }return result;
+}
+public static void main(String[] Args) {
+     doTestPass();
+     }
+}
+class Triangle {
+    public static int pascal(int a , int b){
+        int[][] c = new int[a+1][b+1];
+        c[0][0] = 1;
+        for(int i = 0;i < a+1;i++) {
+            for(int j= 0; j < b+1;j++) {
+                if(j==0){
+                    c[i][j] = 1;
+
+                }else if(i==0) {
+
+                    c[i][j] = 0;
+                }else {
+                    c[i][j] = c[i-1][j-1] + c[i-1][j];
+                }
+            }
+        } return c[a][b];
+    }
+}
+
