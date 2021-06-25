@@ -9,18 +9,11 @@ public class KK {
                        lcm=denominator1*denominator2;
                        sum=(numerator1*denominator2)+(denominator1*numerator2);
                        if(denominator1==denominator2){
-                           sum=denominator2+denominator1;
+                           sum=numerator1+numerator2;
                            lcm=denominator1;
-                           
-                       }
+                          }
                        else
                        {
-                        lcm=denominator1*denominator2;
-                        denominator1=lcm/denominator1;
-                         denominator2=lcm/denominator2;
-                        numerator1=numerator1*denominator1;
-                        numerator2=numerator2*denominator2;
-                        sum=numerator1+numerator2;
                         min=Math.min(sum,lcm);
                         for(int i=2;i<=min;i++)
                         {
