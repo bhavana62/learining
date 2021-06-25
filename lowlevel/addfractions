@@ -1,9 +1,8 @@
 public class KK {
    public static int[] addFraction(int[] fraction1,int[] fraction2)
                     {
-                        int numerator1,denominator1,numerator2,denominator2,sum,lcm,denominator,min;
-                        
-                       numerator1=fraction1[0];
+                        int numerator1,denominator1,numerator2,denominator2,sum,lcm,min;
+                        numerator1=fraction1[0];
                        denominator1=fraction1[1];
                        numerator2=fraction2[0];
                        denominator2=fraction2[1];
@@ -11,36 +10,30 @@ public class KK {
                        sum=(numerator1*denominator2)+(denominator1*numerator2);
                        if(denominator1==denominator2){
                            sum=denominator2+denominator1;
-                           denominator=denominator1=denominator2;
+                           lcm=denominator1;
                            
                        }
                        else
                        {
                         lcm=denominator1*denominator2;
-                        denominator=denominator/denominator1;
-                         denominator=denominator/denominator1;
+                        denominator1=lcm/denominator1;
+                         denominator2=lcm/denominator2;
                         numerator1=numerator1*denominator1;
                         numerator2=numerator2*denominator2;
                         sum=numerator1+numerator2;
-                        min=Math.min(sum,denominator);
+                        min=Math.min(sum,lcm);
                         for(int i=2;i<=min;i++)
                         {
-                            if(sum%i==0&&denominator%i==0)
+                            if(sum%i==0&&lcm%i==0)
                             {
                                 sum=sum/i;
-                                denominator=denominator/i;
+                                lcm=lcm/i;
                             }
                         }
                                                   
-https://www.youtube.com/watch?v=QIe8vIFoaKg
-
                        }
-                       if(sum%denominator==0){
-                           sum=sum/denominator;
-                           System.out.println(sum);
-                       }else{
-                           System.out.println(sum+"/"+denominator);
-                       }
+                      return (new int[]{sum,lcm});
+                       
                     }
 
                       
