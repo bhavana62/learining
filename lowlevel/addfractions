@@ -1,0 +1,61 @@
+public class KK {
+   public static int[] addFraction(int[] fraction1,int[] fraction2)
+                    {
+                        int numerator1,denominator1,numerator2,denominator2,sum,lcm,denominator,min;
+                        
+                       numerator1=fraction1[0];
+                       denominator1=fraction1[1];
+                       numerator2=fraction2[0];
+                       denominator2=fraction2[1];
+                       lcm=denominator1*denominator2;
+                       sum=(numerator1*denominator2)+(denominator1*numerator2);
+                       if(denominator1==denominator2){
+                           sum=denominator2+denominator1;
+                           denominator=denominator1=denominator2;
+                           
+                       }
+                       else
+                       {
+                        lcm=denominator1*denominator2;
+                        denominator=denominator/denominator1;
+                         denominator=denominator/denominator1;
+                        numerator1=numerator1*denominator1;
+                        numerator2=numerator2*denominator2;
+                        sum=numerator1+numerator2;
+                        min=Math.min(sum,denominator);
+                        for(int i=2;i<=min;i++)
+                        {
+                            if(sum%i==0&&denominator%i==0)
+                            {
+                                sum=sum/i;
+                                denominator=denominator/i;
+                            }
+                        }
+                                                  
+
+
+                       }
+                       if(sum%denominator==0){
+                           sum=sum/denominator;
+                           System.out.println(sum);
+                       }else{
+                           System.out.println(sum+"/"+denominator);
+                       }
+                    }
+
+                      
+    public static boolean doTestPass() {
+            int[] result = addFraction(new int[]{21, 42}, new int[]{45, 72});
+            if (result[0] == 9 && result[1] == 8) {
+                System.out.println("test passed "+ result[0]+" "+result[1]);
+                return true;
+            } else {
+                System.out.println("test failed "+ result[0]+" "+result[1]);
+                return false;
+            } 
+        }
+            public static void main (String[] args)
+            {
+                doTestPass();
+            }
+}
