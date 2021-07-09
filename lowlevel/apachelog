@@ -1,0 +1,79 @@
+import java.util.Arrays;
+
+public class ApaceLog {
+
+    public static String findTopIpAddress(String[] log) {
+        String[] ip = new String[log.length];
+        String result = "";
+        int k=0;int count;
+        boolean[] visited = new boolean[log.length];
+        Arrays.fill(visited, false);
+
+        for(int i = 0;i< log.length;i++) {
+            ip[i] = log[i].substring(0, 8);
+        }
+        for( int i=0;i< log.length;i++){
+            if (visited[i]){
+                continue;
+            }
+            count =1;
+            for(int j=0;j< log.length;j++ )  {
+
+                if(ip[i].equals(ip[j]) && i !=j){
+
+                    count = count +1;
+                    visited[j] = true;
+
+                }
+            } if(k < count) {
+                k=count;
+                result =ip[i];
+
+            }else if(k == count) {
+
+                result = result + "," + result;
+
+            }
+
+
+        }
+
+        System.out.println(result);
+        return  result;
+
+            }
+    public static boolean doTestsPass() {
+        boolean testPassed=true;
+        String lines[]=new String[] {
+                "10.0.0.1-frank[10/Dec/2000:12:34:56-0500]\"GET /a.gif HTTp/1.0\"100 134",
+                "10.0.0.1-frank[10/Dec/2000:12:34:57-0500]\"GET /b.gif HTTp/1.0\"100 134",
+                "10.0.0.2-nancy[10/Dec/2000:12:34:58-0500]\"GET /c.gif HTTp/1.0\"100 134"};
+        String result = findTopIpAddress(lines);
+        if(!result.equals("10.0.0.1")){
+            testPassed=false;
+        }
+        lines=new String[]
+                {"10.0.0.1-frank[10/Dec/2000:12:34:56-0500]\"GET /a.gif HTTp/1.0\"100 134",
+                        "10.0.0.2-frank[10/Dec/2000:12:34:57-0500]\"GET /b.gif HTTp/1.0\"100 134",
+                        "10.0.0.2-nancy[10/Dec/2000:12:34:58-0500]\"GET /c.gif HTTp/1.0\"100 134",
+                        "10.0.0.2-nancy[10/Dec/2000:12:34:59-0500]\"GET /c.gif HTTp/1.0\"100 134",
+                        "10.0.0.3-logan[10/Dec/2000:12:34:59-0500]\"GET /d.gif HTTp/1.0\"100 134"};
+        result = findTopIpAddress(lines);
+        if(!result.equals("10.0.0.2"))
+        {
+            testPassed=false;
+        }
+        if(testPassed){
+            System.out.println("Tests passed");
+        }
+        else
+        {
+            System.out.println("Tests failed");
+
+        }return testPassed;
+    }
+
+    public static void main(String[] Args) {
+        doTestsPass();
+    }
+}
