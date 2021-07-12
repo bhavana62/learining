@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class anagrams {
+	    static void isAnagram(String str1, String str2, String str3) {  
+	        char arr1[]=str1.toCharArray();
+	        char arr2[]=str2.toCharArray();
+	        char arr3[]=str3.toCharArray();
+	        Arrays.sort(arr1);
+	        Arrays.sort(arr2);
+	        Arrays.sort(arr2);
+	        String sortedstr1=new String(arr1);
+	        String sortedstr2=new String(arr2);
+	        String sortedstr3=new String(arr3);
+	        if(sortedstr1.equals(sortedstr2))
+	        {
+	           System.out.println("a set of anagrams{{"+str3 +"},{"+str1 +","+str2 +"}}");
+	        }else if(sortedstr1.equals(sortedstr3)) {
+	        	System.out.println("a set of anagrams{{"+str2 +"},{"+str1 +","+str3 +"}}");
+	        }else {
+	    	   System.out.println("a set of anagrams{{"+str1 +"},{"+str2 +","+str3 +"}}");
+	        }
+	    }
+	    public static  void main(String[] args) 
+	    {  
+	        isAnagram("cat", "dog", "god");   
+	    }  
+	} 
