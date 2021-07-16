@@ -8,7 +8,8 @@ class marks extends student{
      String subject="c";
 }
 public class main{
-public static void main(String[] args){
+public static void main(String[] args)
+{
     marks obj=new marks();
     System.out.println(obj.name);
     System.out.println(obj.id);
