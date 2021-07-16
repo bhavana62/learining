@@ -11,7 +11,7 @@ public class overload {
     }
     public static void main(String args[]) {
      overload obj=new overload();
-     System.out.println(obj.sum(20,10));
+     System.out.println(obj.sum(22,10));
      System.out.println(obj.sum(125,12,12));
      System.out.println(obj.sum(10.5,10.5));
     }
