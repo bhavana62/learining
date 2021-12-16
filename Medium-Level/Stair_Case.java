@@ -18,3 +18,34 @@ public class Stair_Case {
 
 	}
 }
+
+///
+
+import java.util.*;public class Average {
+	public static void main(String[] args) {		
+		// TODO Auto-generated method stub		
+		String[][] input=new String[][]{{"Alpha" ,"99"},{"Bravo" , "99"},{"Delta","99"},{"Echo","99"},{"Fortrot","99"},{"Fortrot","99"}};
+		HashMap<String,ArrayList<Integer>>a=new HashMap<String,ArrayList<Integer>>();
+		for(int i=0;i<input.length;i++){
+			if(a.containsKey(input[i][0])){
+				a.get(input[i][0]).add(Integer.parseInt(input[i][1]));
+				}else{
+					ArrayList<Integer>temp=new ArrayList<Integer>();
+					temp.add(Integer.parseInt(input[i][1]));
+                    a.put(input[i][0], temp);
+                    }
+			}
+		double max=0;
+		for(String i:a.keySet()){
+			double avg=0;
+			for(int j:a.get(i)){
+			avg+=j;
+			}
+			avg=avg/a.get(i).size();
+			if(avg>max)
+				max=avg;
+			}
+		System.out.println(max);
+		
+	}
+}
